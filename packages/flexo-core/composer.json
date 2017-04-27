@@ -1,0 +1,22 @@
+{
+    "name": "jmas/flexo-core",
+    "description": "Flexo core libraries.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alex Maslakov",
+            "email": "jmas.ukraine@gmail.com"
+        }
+    ],
+    "require": {
+        "slim/slim": "^3.0",
+        "slim/twig-view": "*",
+        "symfony/filesystem": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Flexo\\Core\\": "src/"
+        }
+    }
+}

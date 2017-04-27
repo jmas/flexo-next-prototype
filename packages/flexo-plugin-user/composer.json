@@ -1,0 +1,20 @@
+{
+    "name": "jmas/flexo-plugin-user",
+    "description": "Flexo user and auth feature.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alex Maslakov",
+            "email": "jmas.ukraine@gmail.com"
+        }
+    ],
+    "require": {
+        "jmas/flexo-core": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Flexo\\Plugin\\User\\": "src/"
+        }
+    }
+}
