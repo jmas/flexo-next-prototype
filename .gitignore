@@ -1,0 +1,4 @@
+composer.lock
+public/res/*
+src/config.php
+vendor/*
