@@ -1,0 +1,31 @@
+{
+    "name": "jmas/flexo-next",
+    "description": "Flexo bootstrap project.",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alex Maslakov",
+            "email": "jmas.ukraine@gmail.com"
+        }
+    ],
+    "require": {
+        "jmas/flexo-core": "dev-master",
+        "jmas/flexo-plugin-user": "dev-master",
+        "jmas/flexo-plugin-ui": "dev-master"
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "packages/flexo-core"
+        },
+        {
+            "type": "path",
+            "url": "packages/flexo-plugin-user"
+        },
+        {
+            "type": "path",
+            "url": "packages/flexo-plugin-ui"
+        }
+    ]
+}
