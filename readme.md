@@ -2,7 +2,7 @@
 
 Flexo CMS is great project that is outdated and currently not supported.
 
-So I decide that I need a platform that:
+So I decide that need a platform with following features:
 - Very extensionable
 - Have light core
 - Have basic UI that can be extended
