@@ -36,17 +36,23 @@
                             {% endif %}
                         </td>
                         <td>
-                            {% if moduleItem.module.getAuthorName() %}
-                                {% if moduleItem.module.getAuthorSiteUrl() %}
-                                    <a href="{{ moduleItem.module.getAuthorSite() }}" target="_blank">{{ moduleItem.module.getAuthorName() }}</a>
-                                {% else %}
-                                    {{ moduleItem.module.getAuthorName() }}
-                                {% endif %}
-                                {% if moduleItem.module.getAuthorEmail() %}
-                                    &lt;<a href="mailto:{{ moduleItem.module.getAuthorEmail() }}">{{ moduleItem.module.getAuthorEmail() }}</a>&gt;
-                                {% endif %}
-                            {% else %}
-                                &ndash;
+                            {% if moduleItem.module.hasAuthors() %}
+                                <div>
+                                    {% for author in moduleItem.module.getAuthors() %}
+                                        {% if author.name %}
+                                            {% if author.website %}
+                                                <a href="{{ author.website }}" target="_blank">{{ author.name }}</a>
+                                            {% else %}
+                                                {{ author.name }}
+                                            {% endif %}
+                                            {% if author.email %}
+                                                &lt;<a href="mailto:{{ author.email }}">{{ author.email }}</a>&gt;
+                                            {% endif %}
+                                        {% else %}
+                                            &ndash;
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
                             {% endif %}
                         </td>
                         <td>

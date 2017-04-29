@@ -61,6 +61,11 @@ abstract class Module {
         return $this->getManifest()['authors'];
     }
 
+    public function hasAuthors()
+    {
+        return !empty($this->getManifest()['authors']);
+    }
+
     public function getDescription()
     {
         $manifest = $this->getManifest();
@@ -76,7 +81,7 @@ abstract class Module {
     public function hasDescription()
     {
         $manifest = $this->getManifest();
-        return !empty($manifest['description']) || empty($manifest['descriptionFile']);
+        return !empty($manifest['description']) || !empty($manifest['descriptionFile']);
     }
 
     abstract function getRootPath();
