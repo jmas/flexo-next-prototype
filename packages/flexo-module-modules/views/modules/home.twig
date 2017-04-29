@@ -1,0 +1,86 @@
+{% extends "core/layouts/main.twig" %}
+
+{% block body %}
+<p>
+    <a class="btn btn-default" href="{{ path_for('modules-repository') }}">Install Modules via Repository</a>
+</p>
+<form action="{{ path_for('modules-save') }}" method="post">
+    <div class="panel panel-default">
+        <div class="panel-heading">Modules Home</div>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th width="350">Author</th>
+                        <th width="200">Enable</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for moduleItem in modules %}
+                    <tr>
+                        <td>
+                            <span title="ID: {{ moduleItem.module.getId() }}">{{ moduleItem.module.getName() }}</span>
+                            {% if moduleItem.module.hasDescription() %}
+                            <button
+                                class="btn btn-default btn-xs"
+                                role="button"
+                                data-toggle="collapse"
+                                href="#module-description-{{ loop.index }}"
+                                aria-expanded="false"
+                                aria-controls="module-description-{{ loop.index }}"
+                            >Description</button>
+                            <div class="collapse" id="module-description-{{ loop.index }}" style="margin-top: 10px;">
+                                {{ moduleItem.module.getDescription() | raw }}
+                            </div>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if moduleItem.module.getAuthorName() %}
+                                {% if moduleItem.module.getAuthorSiteUrl() %}
+                                    <a href="{{ moduleItem.module.getAuthorSite() }}" target="_blank">{{ moduleItem.module.getAuthorName() }}</a>
+                                {% else %}
+                                    {{ moduleItem.module.getAuthorName() }}
+                                {% endif %}
+                                {% if moduleItem.module.getAuthorEmail() %}
+                                    &lt;<a href="mailto:{{ moduleItem.module.getAuthorEmail() }}">{{ moduleItem.module.getAuthorEmail() }}</a>&gt;
+                                {% endif %}
+                            {% else %}
+                                &ndash;
+                            {% endif %}
+                        </td>
+                        <td>
+                            <label
+                                class="btn btn-sm btn-{{ moduleItem.isEnabled ? 'success': 'default' }} {{ moduleItem.isCore ? 'disabled' }}"
+                                title="{{ moduleItem.isCore ? 'Plugin can\'t be disabled because it is core plugin.' }}"
+                                data-toggle="tooltip"
+                            >
+                                <input
+                                    type="checkbox"
+                                    name="modules[]"
+                                    class="btn btn-default btn-sm"
+                                    {{ moduleItem.isCore ? 'disabled' }}
+                                    value="{{ moduleItem.module.getId() }}"
+                                    {{ moduleItem.isEnabled ? 'checked' }}
+                                    style="margin-top: 0;"
+                                >
+                                Enable
+                            </label>
+                            {% if moduleItem.isCore %}
+                                <input type="hidden" name="modules[]" value="{{ moduleItem.module.getId() }}">
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="panel-body">
+            <button
+                class="btn btn-success"
+                type="submit"
+            >Save</button>
+        </div>
+    </div>
+</form>
+{% endblock %}

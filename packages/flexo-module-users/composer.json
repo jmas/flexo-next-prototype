@@ -1,5 +1,5 @@
 {
-    "name": "jmas/flexo-plugin-users",
+    "name": "jmas/flexo-module-users",
     "description": "Flexo user and auth feature.",
     "type": "library",
     "license": "MIT",
@@ -10,11 +10,11 @@
         }
     ],
     "require": {
-        "jmas/flexo-core": "dev-master"
+        "jmas/flexo-module-core": "dev-master"
     },
     "autoload": {
         "psr-4": {
-            "Flexo\\Plugin\\Users\\": "src/"
+            "Flexo\\Module\\Users\\": "src/"
         }
     }
 }

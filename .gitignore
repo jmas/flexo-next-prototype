@@ -1,5 +1,4 @@
-.idea/*
 composer.lock
-public/res/*
-src/config.php
-vendor/*
+vendor/
+.idea/
+public/res/

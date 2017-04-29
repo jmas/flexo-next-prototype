@@ -1,6 +1,6 @@
 {
-    "name": "jmas/flexo-plugin-plugins",
-    "description": "Flexo Plugins manager.",
+    "name": "jmas/flexo-module-modules",
+    "description": "Flexo Modules manager.",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -10,11 +10,11 @@
         }
     ],
     "require": {
-        "jmas/flexo-core": "dev-master"
+        "jmas/flexo-module-core": "dev-master"
     },
     "autoload": {
         "psr-4": {
-            "Flexo\\Plugin\\Plugins\\": "src/"
+            "Flexo\\Module\\Modules\\": "src/"
         }
     }
 }

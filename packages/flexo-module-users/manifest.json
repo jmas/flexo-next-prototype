@@ -1,0 +1,10 @@
+{
+  "id": "Flexo\\Module\\Users\\Module",
+  "name": "Flexo Users",
+  "authors": [{
+    "name": "Alex Maslakov",
+    "email": "jmas.ukraine@gmail.com",
+    "website": "http://flexo.github.io"
+  }],
+  "descriptionFile": "description.html"
+}

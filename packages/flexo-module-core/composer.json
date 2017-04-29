@@ -1,5 +1,5 @@
 {
-    "name": "jmas/flexo-core",
+    "name": "jmas/flexo-module-core",
     "description": "Flexo core libraries.",
     "type": "library",
     "license": "MIT",
@@ -17,7 +17,7 @@
     "autoload": {
         "psr-4": {
             "Flexo\\Core\\": "libs/",
-            "Flexo\\Plugin\\Core\\": "src/"
+            "Flexo\\Module\\Core\\": "src/"
         }
     }
 }

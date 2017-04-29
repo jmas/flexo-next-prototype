@@ -10,22 +10,22 @@
         }
     ],
     "require": {
-        "jmas/flexo-core": "dev-master",
-        "jmas/flexo-plugin-users": "dev-master",
-        "jmas/flexo-plugin-plugins": "dev-master"
+        "jmas/flexo-module-core": "dev-master",
+        "jmas/flexo-module-users": "dev-master",
+        "jmas/flexo-module-modules": "dev-master"
     },
     "repositories": [
         {
             "type": "path",
-            "url": "packages/flexo-core"
+            "url": "packages/flexo-module-core"
         },
         {
             "type": "path",
-            "url": "packages/flexo-plugin-users"
+            "url": "packages/flexo-module-users"
         },
         {
             "type": "path",
-            "url": "packages/flexo-plugin-plugins"
+            "url": "packages/flexo-module-modules"
         }
     ]
 }

@@ -4,6 +4,6 @@ return [
 	'settings' => [
         'displayErrorDetails' => true,
         'homeTitle' => 'Flexo',
-        'homeRoute' => 'plugins-home',
+        'homeRoute' => 'modules-home',
     ],
 ];
