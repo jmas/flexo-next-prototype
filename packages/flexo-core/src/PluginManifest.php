@@ -12,6 +12,11 @@ abstract class PluginManifest {
 		$this->container = $this->app->getContainer();
 	}
 
+	public function getId()
+    {
+        return get_class($this);
+    }
+
 	public function getResPath()
 	{
 		return null;
@@ -34,13 +39,18 @@ abstract class PluginManifest {
 
 	public function onRegister()
 	{
-		return void;
+		return null;
 	}
 
-	public function canBeDisabled()
-	{
-		return true;
-	}
+	public function getDescription()
+    {
+        return null;
+    }
+
+    public function hasDescription()
+    {
+        return $this->getDescription() !== null;
+    }
 
 	abstract public function getName();
 }

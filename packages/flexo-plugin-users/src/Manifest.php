@@ -9,11 +9,6 @@ class Manifest extends \Flexo\Core\PluginManifest
 		return 'Flexo Users';
 	}
 
-	public function canBeDisabled()
-	{
-		return false;
-	}
-
 	public function getResPath()
 	{
 		return dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'res';

@@ -1,7 +1,5 @@
-<?php
-
-return [
-	\Flexo\Plugin\Users\Manifest::class,
-	\Flexo\Plugin\Ui\Manifest::class,
-	\Flexo\Plugin\Plugins\Manifest::class,
-];
+<?php return array (
+  0 => 'Flexo\\Plugin\\Ui\\Manifest',
+  1 => 'Flexo\\Plugin\\Plugins\\Manifest',
+  2 => 'Flexo\\Plugin\\Users\\Manifest',
+);

@@ -1,8 +1,66 @@
 {% extends "ui/layouts/main.twig" %}
 
 {% block body %}
-<h1>Plugins List</h1>
-<ul>
-    <li>Plugin A</li>
-</ul>
+<form action="{{ path_for('plugins-save') }}" method="post">
+    <div class="panel panel-default">
+        <div class="panel-heading">Plugins</div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th width="200">Enable</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pluginListItem in pluginsList %}
+                <tr>
+                    <td>
+                        <span title="ID: {{ pluginListItem.plugin.getId() }}">{{ pluginListItem.plugin.getName() }}</span>
+                        {% if pluginListItem.plugin.hasDescription() %}
+                        <button
+                            class="btn btn-default btn-xs"
+                            role="button"
+                            data-toggle="collapse"
+                            href="#plugin-description-{{ loop.index }}"
+                            aria-expanded="false"
+                            aria-controls="plugin-description-{{ loop.index }}"
+                        >Description</button>
+                        <div class="collapse" id="plugin-description-{{ loop.index }}" style="margin-top: 10px;">
+                            {{ pluginListItem.plugin.getDescription() | raw }}
+                        </div>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <label
+                            class="btn btn-sm btn-{{ pluginListItem.isEnabled ? 'success': 'default' }} {{ pluginListItem.isCore ? 'disabled' }}"
+                            title="{{ pluginListItem.isCore ? 'Plugin cant be disabled because it is core plugin.' }}"
+                            data-toggle="tooltip"
+                        >
+                            <input
+                                type="checkbox"
+                                name="plugins[]"
+                                class="btn btn-default btn-sm"
+                                {{ pluginListItem.isCore ? 'disabled' }}
+                                value="{{ pluginListItem.plugin.getId() }}"
+                                {{ pluginListItem.isEnabled ? 'checked' }}
+                                style="margin-top: 0;"
+                            >
+                            Enable
+                        </label>
+                        {% if pluginListItem.isCore %}
+                            <input type="hidden" name="plugins[]" value="{{ pluginListItem.plugin.getId() }}">
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="panel-body">
+            <button
+                class="btn btn-success"
+                type="submit"
+            >Save</button>
+        </div>
+    </div>
+</form>
 {% endblock %}
