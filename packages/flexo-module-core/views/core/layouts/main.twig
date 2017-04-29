@@ -1,3 +1,4 @@
+{% block assets %}
 {{ add_asset('js', get_res_url('core/jquery/jquery.min.js')) }}
 {{ add_asset('js', get_res_url('core/bootstrap/js/bootstrap.min.js')) }}
 {{ add_asset('js', get_res_url('core/bootstrap.js')) }}
@@ -7,10 +8,11 @@
 {{ add_asset('font', get_res_url('core/bootstrap/fonts/glyphicons-halflings-regular.ttf')) }}
 {{ add_asset('font', get_res_url('core/bootstrap/fonts/glyphicons-halflings-regular.woff')) }}
 {{ add_asset('font', get_res_url('core/bootstrap/fonts/glyphicons-halflings-regular.woff2')) }}
+{% endblock %}
 <!doctype html>
 <html>
 <head>
-	<title>{% if title %}{{ title }} &ndash; {% endif %}Flexo</title>
+	<title>{% if title %}{{ title }} &ndash; {% endif %}{{ settings.siteName }}</title>
 	{% include "core/helpers/assets-css.twig" %}
 </head>
 <body>

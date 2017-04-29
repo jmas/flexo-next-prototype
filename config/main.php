@@ -3,7 +3,7 @@
 return [
 	'settings' => [
         'displayErrorDetails' => true,
-        'homeTitle' => 'Flexo',
+        'siteName' => 'Flexo',
         'homeRoute' => 'modules-home',
     ],
 ];
