@@ -1,0 +1,22 @@
+{{ add_asset('js', get_res_url('core/jquery/jquery.min.js')) }}
+{{ add_asset('js', get_res_url('core/bootstrap/js/bootstrap.min.js')) }}
+{{ add_asset('js', get_res_url('core/bootstrap.js')) }}
+{{ add_asset('css', get_res_url('core/bootstrap/css/bootstrap.min.css')) }}
+<!doctype html>
+<html>
+<head>
+	<title>{% if title %}{{ title }} &ndash; {% endif %}Flexo</title>
+	{% include "core/helpers/assets-css.twig" %}
+</head>
+<body>
+
+{% include "core/helpers/nav.twig" %}
+
+<div class="container">
+{% block body %}
+{% endblock %}
+</div>
+
+{% include "core/helpers/assets-js.twig" %}
+</body>
+</html>

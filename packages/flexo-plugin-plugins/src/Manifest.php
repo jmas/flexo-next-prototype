@@ -9,6 +9,21 @@ class Manifest extends \Flexo\Core\PluginManifest
 		return 'Flexo Plugins';
 	}
 
+	public function getAuthorName()
+    {
+        return 'Alex Maslakov';
+    }
+
+    public function getAuthorEmail()
+    {
+        return 'jmas.ukraine@gmail.com';
+    }
+
+    public function getAuthorSiteUrl()
+    {
+        return 'http://flexo.github.io/';
+    }
+
 	public function onRegister()
 	{
 	    $app = $this->app;
@@ -34,6 +49,12 @@ class Manifest extends \Flexo\Core\PluginManifest
             $app->savePlugins($plugins);
             return $response->withRedirect($this->router->pathFor('plugins-home'));
         })->setName('plugins-save');
+        $this->app->get('/plugins/repository', function($request, $response) use ($app)
+        {
+            return $this->view->render($response, 'plugins/repository.twig', [
+                'title' => 'Plugins Repository',
+            ]);
+        })->setName('plugins-repository');
 		$this->container->nav->addItem('Plugins', 'plugins-home', 'Settings');
 	}
 

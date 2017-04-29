@@ -42,6 +42,21 @@ abstract class PluginManifest {
 		return null;
 	}
 
+    public function getAuthorName()
+    {
+        return null;
+    }
+
+    public function getAuthorEmail()
+    {
+        return null;
+    }
+
+    public function getAuthorSiteUrl()
+    {
+        return null;
+    }
+
 	public function getDescription()
     {
         return null;

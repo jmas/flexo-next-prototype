@@ -16,7 +16,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Flexo\\Core\\": "src/"
+            "Flexo\\Core\\": "libs/",
+            "Flexo\\Plugin\\Core\\": "src/"
         }
     }
 }
