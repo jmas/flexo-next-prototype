@@ -12,7 +12,8 @@
     "require": {
         "jmas/flexo-module-core": "dev-master",
         "jmas/flexo-module-users": "dev-master",
-        "jmas/flexo-module-modules": "dev-master"
+        "jmas/flexo-module-modules": "dev-master",
+        "jmas/flexo-module-example": "dev-master"
     },
     "repositories": [
         {
@@ -26,6 +27,10 @@
         {
             "type": "path",
             "url": "packages/flexo-module-modules"
+        },
+        {
+            "type": "vcs",
+            "url":  "git@github.com:jmas/flexo-module-example.git"
         }
     ]
 }

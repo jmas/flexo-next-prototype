@@ -20,7 +20,7 @@ $app = new \Flexo\Core\App(array_merge(file_exists(CONFIG_MAIN_FILE_PATH) ? requ
         \Flexo\Module\Modules\Module::class,
         \Flexo\Module\Users\Module::class,
     ],
+    'modulesRepositoryUrl' => 'https://raw.githubusercontent.com/jmas/flexo-repository/master/data/modules.json',
     'twigCachePath' => false,
-    'pluginsRepositoryUrl' => 'http://127.0.0.1:8888/res/repository.json',
 ]));
 $app->run();

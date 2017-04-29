@@ -6,5 +6,5 @@
     "email": "jmas.ukraine@gmail.com",
     "website": "http://flexo.github.io"
   }],
-  "descriptionFile": "description.html"
+  "description": "Provide UI for install/enable/disable/remove modules."
 }

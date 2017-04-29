@@ -15,6 +15,6 @@ class Module extends \Flexo\Core\Module
 		{
 			return $this->view->render($response, 'users/home.twig');
 		})->setName('user-home');
-		$this->container->nav->addItem('Users', 'user-home');
+		$this->container->nav->addItem('Users', 'user-home', 'Settings');
 	}
 }

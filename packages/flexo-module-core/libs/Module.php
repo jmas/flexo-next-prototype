@@ -69,19 +69,13 @@ abstract class Module {
     public function getDescription()
     {
         $manifest = $this->getManifest();
-        if (!empty($manifest['description'])) {
-            return $manifest['description'];
-        }
-        if (!empty($manifest['descriptionFile'])) {
-            return file_get_contents($this->getRootPath() . DIRECTORY_SEPARATOR . $manifest['descriptionFile']);
-        }
-        return null;
+        return !empty($manifest['description']) ? $manifest['description']: null;
     }
 
     public function hasDescription()
     {
         $manifest = $this->getManifest();
-        return !empty($manifest['description']) || !empty($manifest['descriptionFile']);
+        return !empty($manifest['description']);
     }
 
     abstract function getRootPath();

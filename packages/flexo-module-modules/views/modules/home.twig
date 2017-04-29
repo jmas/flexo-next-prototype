@@ -22,23 +22,23 @@
                         <td>
                             <span title="ID: {{ moduleItem.module.getId() }}">{{ moduleItem.module.getName() }}</span>
                             {% if moduleItem.module.hasDescription() %}
-                            <button
-                                class="btn btn-default btn-xs"
-                                role="button"
-                                data-toggle="collapse"
-                                href="#module-description-{{ loop.index }}"
-                                aria-expanded="false"
-                                aria-controls="module-description-{{ loop.index }}"
-                            >Description</button>
-                            <div class="collapse" id="module-description-{{ loop.index }}" style="margin-top: 10px;">
-                                {{ moduleItem.module.getDescription() | raw }}
-                            </div>
+                                <button
+                                    class="btn btn-default btn-xs"
+                                    role="button"
+                                    data-toggle="collapse"
+                                    href="#module-description-{{ loop.index }}"
+                                    aria-expanded="false"
+                                    aria-controls="module-description-{{ loop.index }}"
+                                >Description</button>
+                                <div class="collapse" id="module-description-{{ loop.index }}" style="margin-top: 10px;">
+                                    {{ moduleItem.module.getDescription() | raw }}
+                                </div>
                             {% endif %}
                         </td>
                         <td>
                             {% if moduleItem.module.hasAuthors() %}
-                                <div>
-                                    {% for author in moduleItem.module.getAuthors() %}
+                                {% for author in moduleItem.module.getAuthors() %}
+                                    <div>
                                         {% if author.name %}
                                             {% if author.website %}
                                                 <a href="{{ author.website }}" target="_blank">{{ author.name }}</a>
@@ -51,8 +51,8 @@
                                         {% else %}
                                             &ndash;
                                         {% endif %}
-                                    {% endfor %}
-                                </div>
+                                    </div>
+                                {% endfor %}
                             {% endif %}
                         </td>
                         <td>
