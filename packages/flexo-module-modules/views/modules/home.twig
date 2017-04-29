@@ -2,8 +2,9 @@
 
 {% block body %}
 <p>
-    <a class="btn btn-default" href="{{ path_for('modules-repository') }}">Install Modules via Repository</a>
+    <a class="btn btn-default" href="{{ path_for('modules-repository') }}"><i class="glyphicon glyphicon-import"></i> Install Modules via Repository</a>
 </p>
+<hr>
 <form action="{{ path_for('modules-save') }}" method="post">
     <div class="panel panel-default">
         <div class="panel-heading">Modules Home</div>
@@ -37,22 +38,7 @@
                         </td>
                         <td>
                             {% if moduleItem.module.hasAuthors() %}
-                                {% for author in moduleItem.module.getAuthors() %}
-                                    <div>
-                                        {% if author.name %}
-                                            {% if author.website %}
-                                                <a href="{{ author.website }}" target="_blank">{{ author.name }}</a>
-                                            {% else %}
-                                                {{ author.name }}
-                                            {% endif %}
-                                            {% if author.email %}
-                                                &lt;<a href="mailto:{{ author.email }}">{{ author.email }}</a>&gt;
-                                            {% endif %}
-                                        {% else %}
-                                            &ndash;
-                                        {% endif %}
-                                    </div>
-                                {% endfor %}
+                                {% include 'modules/helpers/authors.twig' with { 'authors': moduleItem.module.getAuthors() } %}
                             {% endif %}
                         </td>
                         <td>

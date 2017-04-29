@@ -1,6 +1,7 @@
 <?php
 
 namespace Flexo\Core;
+use Symfony\Component\Filesystem\Filesystem;
 
 class App extends \Slim\App
 {
@@ -8,9 +9,13 @@ class App extends \Slim\App
     protected $modulesEnabled = [];
 	protected $viewsPaths = [];
 	protected $resPaths = [];
+	protected $fs;
 
 	public function run($silent = false)
 	{
+        session_start();
+        $this->fs = new Filesystem();
+        $this->registerFlash();
 		$this->registerNav();
 		$this->registerModules();
 		$this->registerModulesEnabled();
@@ -43,6 +48,13 @@ class App extends \Slim\App
     {
         $modulesEnabledFilePath = $this->getContainer()->modulesEnabledFilePath;
         return file_put_contents($modulesEnabledFilePath, '<' . '?php return ' . var_export($modulesList, true) . ';') !== false;
+    }
+
+    public function getTempDirPath($dirName)
+    {
+        $tempDirPath = $this->getContainer()->tempDirPath . DIRECTORY_SEPARATOR . $dirName;
+        $this->fs->mkdir($tempDirPath, 0700);
+        return $tempDirPath;
     }
 
     protected function registerModules()
@@ -81,6 +93,7 @@ class App extends \Slim\App
 			$view->addExtension(new TwigExtension($container));
 			$view->offsetSet('nav', $container->nav);
             $view->offsetSet('settings', $container->settings);
+            $view->offsetSet('flash', $container->flash);
 			return $view;
 		};
 	}
@@ -111,4 +124,12 @@ class App extends \Slim\App
 			return new Nav();
 		};
 	}
+
+	protected function registerFlash()
+    {
+        $container = $this->getContainer();
+        $container['flash'] = function () {
+            return new \Slim\Flash\Messages();
+        };
+    }
 }

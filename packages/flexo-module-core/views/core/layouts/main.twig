@@ -2,6 +2,11 @@
 {{ add_asset('js', get_res_url('core/bootstrap/js/bootstrap.min.js')) }}
 {{ add_asset('js', get_res_url('core/bootstrap.js')) }}
 {{ add_asset('css', get_res_url('core/bootstrap/css/bootstrap.min.css')) }}
+{{ add_asset('font', get_res_url('core/bootstrap/fonts/glyphicons-halflings-regular.eot')) }}
+{{ add_asset('font', get_res_url('core/bootstrap/fonts/glyphicons-halflings-regular.svg')) }}
+{{ add_asset('font', get_res_url('core/bootstrap/fonts/glyphicons-halflings-regular.ttf')) }}
+{{ add_asset('font', get_res_url('core/bootstrap/fonts/glyphicons-halflings-regular.woff')) }}
+{{ add_asset('font', get_res_url('core/bootstrap/fonts/glyphicons-halflings-regular.woff2')) }}
 <!doctype html>
 <html>
 <head>
@@ -13,8 +18,10 @@
 {% include "core/helpers/nav.twig" %}
 
 <div class="container">
-{% block body %}
-{% endblock %}
+    {% include 'core/helpers/alerts.twig' with { 'alerts': flash.getMessage('error'), 'type': 'warning' } %}
+    {% include 'core/helpers/alerts.twig' with { 'alerts': flash.getMessage('success'), 'type': 'success' } %}
+	{% block body %}
+	{% endblock %}
 </div>
 
 {% include "core/helpers/assets-js.twig" %}

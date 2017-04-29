@@ -1,0 +1,16 @@
+{% for author in authors %}
+    <div>
+        {% if author.name %}
+            {% if author.website %}
+                <a href="{{ author.website }}" target="_blank">{{ author.name }}</a>
+            {% else %}
+                {{ author.name }}
+            {% endif %}
+            {% if author.email %}
+                &lt;<a href="mailto:{{ author.email }}">{{ author.email }}</a>&gt;
+            {% endif %}
+        {% else %}
+            &ndash;
+        {% endif %}
+    </div>
+{% endfor %}

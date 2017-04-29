@@ -12,6 +12,7 @@
     "require": {
         "slim/slim": "^3.0",
         "slim/twig-view": "*",
+        "slim/flash": "*",
         "symfony/filesystem": "*"
     },
     "autoload": {
