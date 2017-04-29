@@ -20,3 +20,8 @@ a source, it is a source plus community plus infrastructure. For now current
 project is just a source, and I need work hard to provide other two ingredients.
 
 Thanks for watching. :)
+
+## Other links
+
+* [Repository](https://github.com/jmas/flexo-repository)
+* [Module Example](https://github.com/jmas/flexo-module-example)
