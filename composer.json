@@ -11,8 +11,9 @@
     ],
     "require": {
         "jmas/flexo-core": "dev-master",
-        "jmas/flexo-plugin-user": "dev-master",
-        "jmas/flexo-plugin-ui": "dev-master"
+        "jmas/flexo-plugin-users": "dev-master",
+        "jmas/flexo-plugin-ui": "dev-master",
+        "jmas/flexo-plugin-plugins": "dev-master"
     },
     "repositories": [
         {
@@ -21,11 +22,15 @@
         },
         {
             "type": "path",
-            "url": "packages/flexo-plugin-user"
+            "url": "packages/flexo-plugin-users"
         },
         {
             "type": "path",
             "url": "packages/flexo-plugin-ui"
+        },
+        {
+            "type": "path",
+            "url": "packages/flexo-plugin-plugins"
         }
     ]
 }

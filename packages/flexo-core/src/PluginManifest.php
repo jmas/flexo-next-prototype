@@ -4,10 +4,12 @@ namespace Flexo\Core;
 
 abstract class PluginManifest {
 	protected $app;
+	protected $container;
 
 	public function __construct(\Flexo\Core\App $app)
 	{
 		$this->app = $app;
+		$this->container = $this->app->getContainer();
 	}
 
 	public function getResPath()
@@ -34,4 +36,11 @@ abstract class PluginManifest {
 	{
 		return void;
 	}
+
+	public function canBeDisabled()
+	{
+		return true;
+	}
+
+	abstract public function getName();
 }

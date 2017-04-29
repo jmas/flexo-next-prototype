@@ -9,8 +9,12 @@
 </head>
 <body>
 
+{% include "ui/helpers/nav.twig" %}
+
+<div class="container">
 {% block body %}
 {% endblock %}
+</div>
 
 {% include "ui/helpers/assets-js.twig" %}
 </body>

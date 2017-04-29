@@ -10,6 +10,7 @@ class App extends \Slim\App
 
 	public function run($silent = false)
 	{
+		$this->registerNav();
 		$this->registerEnabledPlugins();
 		$this->registerViews();
 		$this->registerResources();
@@ -49,9 +50,9 @@ class App extends \Slim\App
 			$view = new \Slim\Views\Twig($this->viewsPaths, [
 			//'cache' => 'path/to/cache'
 			]);
-			$basePath = rtrim(str_ireplace('index.php', '', $container['request']->getUri()->getBasePath()), '/');
-			$view->addExtension(new \Slim\Views\TwigExtension($container['router'], $basePath));
+			$view->addExtension(new \Slim\Views\TwigExtension($container['router'], $container->request->getUri()));
 			$view->addExtension(new TwigExtension($container));
+			$view->offsetSet('nav', $container->nav);
 			return $view;
 		};
 	}
@@ -73,6 +74,14 @@ class App extends \Slim\App
 				$container->publicResPath,
 				$container->publicResUrl
 			);
+		};
+	}
+
+	protected function registerNav()
+	{
+		$container = $this->getContainer();
+		$container['nav'] = function($container) {
+			return new Nav();
 		};
 	}
 }

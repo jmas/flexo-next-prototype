@@ -1,6 +1,6 @@
 {
-    "name": "jmas/flexo-plugin-user",
-    "description": "Flexo user and auth feature.",
+    "name": "jmas/flexo-plugin-plugins",
+    "description": "Flexo Plugins manager.",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Flexo\\Plugin\\User\\": "src/"
+            "Flexo\\Plugin\\Plugins\\": "src/"
         }
     }
 }

@@ -1,12 +1,12 @@
 <?php
 
-namespace Flexo\Plugin\Ui;
+namespace Flexo\Plugin\Users;
 
 class Manifest extends \Flexo\Core\PluginManifest
 {
 	public function getName()
 	{
-		return 'Flexo UI';
+		return 'Flexo Users';
 	}
 
 	public function canBeDisabled()
@@ -22,5 +22,14 @@ class Manifest extends \Flexo\Core\PluginManifest
 	public function getViewsPath()
 	{
 		return dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'views';
+	}
+
+	public function onRegister()
+	{
+		$this->app->get('/users', function($request, $response)
+		{
+			return $this->view->render($response, 'users/home.twig');
+		})->setName('user-home');
+		$this->container->nav->addItem('Users', 'user-home');
 	}
 }
